@@ -150,7 +150,7 @@ class LLaVATrainer(Trainer):
         self.phrase=phrase
         self.second_model, _, _, _ = deepspeed.initialize(model=self.second_model,
                                                           model_parameters=self.second_model.parameters(),
-                                                          config='/data1/LLaVA/scripts/zero3.json')
+                                                          config=self.args.deepspeed)
         # print(self.second_model)
         # self.second_model.eval()
         # self.second_model = copy.deepcopy(self.model)
